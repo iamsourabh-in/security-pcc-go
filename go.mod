@@ -1,4 +1,4 @@
-module github.com/apple/security-pcc-go
+module github.com/iamsourabh/security-pcc-go
 
 go 1.21
 
