@@ -207,7 +207,7 @@ const file_proto_cloudboard_jobhelper_proto_rawDesc = "" +
 	"\rEmptyResponse2\xc8\x01\n" +
 	"\tJobHelper\x12c\n" +
 	"\x0eInvokeWorkload\x12%.cloudboard.jobhelper.WorkloadRequest\x1a&.cloudboard.jobhelper.WorkloadResponse(\x010\x01\x12V\n" +
-	"\bTeardown\x12%.cloudboard.jobhelper.TeardownRequest\x1a#.cloudboard.jobhelper.EmptyResponseB=Z;github.com/apple/security-pcc-go/proto/cloudboard/jobhelperb\x06proto3"
+	"\bTeardown\x12%.cloudboard.jobhelper.TeardownRequest\x1a#.cloudboard.jobhelper.EmptyResponseBEZCgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/jobhelperb\x06proto3"
 
 var (
 	file_proto_cloudboard_jobhelper_proto_rawDescOnce sync.Once

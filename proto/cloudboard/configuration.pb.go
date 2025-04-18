@@ -342,7 +342,7 @@ const file_proto_cloudboard_configuration_proto_rawDesc = "" +
 	"\bRegister\x12).cloudboard.configuration.RegisterRequest\x1a-.cloudboard.configuration.ConfigurationUpdate\x12z\n" +
 	" SuccessfullyAppliedConfiguration\x12-.cloudboard.configuration.ApplySuccessRequest\x1a'.cloudboard.configuration.EmptyResponse\x12t\n" +
 	"\x1aFailedToApplyConfiguration\x12-.cloudboard.configuration.ApplyFailureRequest\x1a'.cloudboard.configuration.EmptyResponse\x12x\n" +
-	"\x1fCurrentConfigurationVersionInfo\x12&.cloudboard.configuration.EmptyRequest\x1a-.cloudboard.configuration.VersionInfoResponseBAZ?github.com/apple/security-pcc-go/proto/cloudboard/configurationb\x06proto3"
+	"\x1fCurrentConfigurationVersionInfo\x12&.cloudboard.configuration.EmptyRequest\x1a-.cloudboard.configuration.VersionInfoResponseBIZGgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/configurationb\x06proto3"
 
 var (
 	file_proto_cloudboard_configuration_proto_rawDescOnce sync.Once

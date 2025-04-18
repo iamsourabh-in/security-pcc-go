@@ -1,6 +1,6 @@
 syntax = "proto3";
 package cloudboard.jobauth;
-option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/jobauth";
+option go_package = "github.com/iamsourabh-in/security-pcc-go/proto/cloudboard/jobauth";
 
 // JobAuth service issues and validates per-job tokens.
 service JobAuth {

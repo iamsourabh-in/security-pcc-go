@@ -1,6 +1,6 @@
 syntax = "proto3";
 package cloudboard.configuration;
-option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/configuration";
+option go_package = "github.com/iamsourabh-in/security-pcc-go/proto/cloudboard/configuration";
 
 // Configuration service manages node configuration registration and updates.
 service Configuration {

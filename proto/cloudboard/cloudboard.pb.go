@@ -209,7 +209,7 @@ const file_proto_cloudboard_cloudboard_proto_rawDesc = "" +
 	"\n" +
 	"CloudBoard\x12s\n" +
 	"\x10FetchAttestation\x12..cloudboard.controller.FetchAttestationRequest\x1a/.cloudboard.controller.FetchAttestationResponse\x12q\n" +
-	"\x0eInvokeWorkload\x12,.cloudboard.controller.InvokeWorkloadRequest\x1a-.cloudboard.controller.InvokeWorkloadResponse(\x010\x01B>Z<github.com/apple/security-pcc-go/proto/cloudboard/controllerb\x06proto3"
+	"\x0eInvokeWorkload\x12,.cloudboard.controller.InvokeWorkloadRequest\x1a-.cloudboard.controller.InvokeWorkloadResponse(\x010\x01BFZDgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/controllerb\x06proto3"
 
 var (
 	file_proto_cloudboard_cloudboard_proto_rawDescOnce sync.Once

@@ -1,6 +1,6 @@
 syntax = "proto3";
 package cloudboard.jobhelper;
-option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/jobhelper";
+option go_package = "github.com/iamsourabh-in/security-pcc-go/proto/cloudboard/jobhelper";
 
 // JobHelper service invokes and manages workloads.
 service JobHelper {

@@ -113,7 +113,7 @@ const file_proto_cloudboard_attestation_proto_rawDesc = "" +
 	"\x0eAttestResponse\x12\x16\n" +
 	"\x06bundle\x18\x01 \x01(\fR\x06bundle2f\n" +
 	"\vAttestation\x12W\n" +
-	"\x06Attest\x12%.cloudboard.attestation.AttestRequest\x1a&.cloudboard.attestation.AttestResponseB?Z=github.com/apple/security-pcc-go/proto/cloudboard/attestationb\x06proto3"
+	"\x06Attest\x12%.cloudboard.attestation.AttestRequest\x1a&.cloudboard.attestation.AttestResponseBGZEgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/attestationb\x06proto3"
 
 var (
 	file_proto_cloudboard_attestation_proto_rawDescOnce sync.Once

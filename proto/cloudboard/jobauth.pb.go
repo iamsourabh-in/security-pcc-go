@@ -216,7 +216,7 @@ const file_proto_cloudboard_jobauth_proto_rawDesc = "" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid2\xd5\x01\n" +
 	"\aJobAuth\x12d\n" +
 	"\rGenerateToken\x12(.cloudboard.jobauth.GenerateTokenRequest\x1a).cloudboard.jobauth.GenerateTokenResponse\x12d\n" +
-	"\rValidateToken\x12(.cloudboard.jobauth.ValidateTokenRequest\x1a).cloudboard.jobauth.ValidateTokenResponseB;Z9github.com/apple/security-pcc-go/proto/cloudboard/jobauthb\x06proto3"
+	"\rValidateToken\x12(.cloudboard.jobauth.ValidateTokenRequest\x1a).cloudboard.jobauth.ValidateTokenResponseBCZAgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/jobauthb\x06proto3"
 
 var (
 	file_proto_cloudboard_jobauth_proto_rawDescOnce sync.Once
