@@ -1,0 +1,31 @@
+syntax = "proto3";
+package cloudboard.jobauth;
+option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/jobauth";
+
+// JobAuth service issues and validates per-job tokens.
+service JobAuth {
+  // GenerateToken issues a new token for a job.
+  rpc GenerateToken(GenerateTokenRequest) returns (GenerateTokenResponse);
+  // ValidateToken checks if a token is valid.
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
+message GenerateTokenRequest {
+  // Serialized job metadata (e.g., job ID, permissions).
+  bytes job_metadata = 1;
+}
+
+message GenerateTokenResponse {
+  // Signed token blob.
+  bytes token = 1;
+}
+
+message ValidateTokenRequest {
+  // Token to validate.
+  bytes token = 1;
+}
+
+message ValidateTokenResponse {
+  // True if the token is valid.
+  bool valid = 1;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+package cloudboard.jobhelper;
+option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/jobhelper";
+
+// JobHelper service invokes and manages workloads.
+service JobHelper {
+  // Bi-directional streaming for workload requests and responses.
+  rpc InvokeWorkload(stream WorkloadRequest) returns (stream WorkloadResponse);
+  // Teardown cleans up any running workload.
+  rpc Teardown(TeardownRequest) returns (EmptyResponse);
+}
+
+// WorkloadRequest is sent to request workload operations.
+message WorkloadRequest {
+  bytes payload = 1;
+}
+
+// WorkloadResponse is sent in response to workload requests.
+message WorkloadResponse {
+  bytes payload = 1;
+}
+
+// TeardownRequest indicates teardown operation.
+message TeardownRequest {
+  bytes payload = 1;
+}
+
+// EmptyResponse is a placeholder for empty responses.
+message EmptyResponse {}

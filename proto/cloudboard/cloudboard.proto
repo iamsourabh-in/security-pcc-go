@@ -1,0 +1,30 @@
+syntax = "proto3";
+package cloudboard.controller;
+option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/controller";
+
+// CloudBoard orchestrates attestation, configuration, and workloads.
+service CloudBoard {
+  // FetchAttestation retrieves a fresh attestation bundle.
+  rpc FetchAttestation(FetchAttestationRequest) returns (FetchAttestationResponse);
+  // InvokeWorkload streams workload requests to the node and returns workload responses.
+  rpc InvokeWorkload(stream InvokeWorkloadRequest) returns (stream InvokeWorkloadResponse);
+}
+
+// FetchAttestationRequest is a request for a new attestation.
+message FetchAttestationRequest {}
+
+// FetchAttestationResponse contains the attestation bundle.
+message FetchAttestationResponse {
+  bytes bundle = 1;
+}
+
+// InvokeWorkloadRequest is sent by a client to invoke a workload.
+message InvokeWorkloadRequest {
+  // Payload may include initial job metadata or request data.
+  bytes payload = 1;
+}
+
+// InvokeWorkloadResponse is returned from workload execution.
+message InvokeWorkloadResponse {
+  bytes payload = 1;
+}

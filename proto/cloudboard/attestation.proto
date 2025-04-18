@@ -1,0 +1,20 @@
+syntax = "proto3";
+package cloudboard.attestation;
+option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/attestation";
+
+// Attestation provides node attestation services.
+service Attestation {
+  // Attest performs a device attestation and returns an attestation bundle.
+  rpc Attest(AttestRequest) returns (AttestResponse);
+}
+
+// AttestRequest is the request message for Attest.
+message AttestRequest {
+  // Placeholder for future request parameters.
+}
+
+// AttestResponse is the response message for Attest.
+message AttestResponse {
+  // The serialized attestation bundle bytes.
+  bytes bundle = 1;
+}

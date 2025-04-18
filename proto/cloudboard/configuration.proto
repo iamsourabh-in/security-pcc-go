@@ -1,0 +1,47 @@
+syntax = "proto3";
+package cloudboard.configuration;
+option go_package = "github.com/apple/security-pcc-go/proto/cloudboard/configuration";
+
+// Configuration service manages node configuration registration and updates.
+service Configuration {
+  // Register a client for configuration updates.
+  rpc Register(RegisterRequest) returns (ConfigurationUpdate);
+  // Acknowledge successful application of a configuration.
+  rpc SuccessfullyAppliedConfiguration(ApplySuccessRequest) returns (EmptyResponse);
+  // Acknowledge failure to apply a configuration.
+  rpc FailedToApplyConfiguration(ApplyFailureRequest) returns (EmptyResponse);
+  // Retrieve current configuration version info.
+  rpc CurrentConfigurationVersionInfo(EmptyRequest) returns (VersionInfoResponse);
+}
+
+// RegisterRequest is sent by a client to register for updates.
+message RegisterRequest {
+  // Serialized registration payload (e.g. domain, client info).
+  bytes registration = 1;
+}
+
+// ConfigurationUpdate contains the update data to apply.
+message ConfigurationUpdate {
+  bytes update_payload = 1;
+}
+
+// ApplySuccessRequest acknowledges a successful apply.
+message ApplySuccessRequest {
+  bytes success_payload = 1;
+}
+
+// ApplyFailureRequest acknowledges a failed apply.
+message ApplyFailureRequest {
+  bytes failure_payload = 1;
+}
+
+// VersionInfoResponse returns info about the current config version.
+message VersionInfoResponse {
+  bytes version_info = 1;
+}
+
+// EmptyRequest is a placeholder for empty requests.
+message EmptyRequest {}
+
+// EmptyResponse is a placeholder for empty responses.
+message EmptyResponse {}
