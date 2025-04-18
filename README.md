@@ -158,6 +158,8 @@ Run the provided generator script:
 ```bash
 scripts/gen-proto.sh
 
+go list -mod=readonly -m -u -e -json all
+
 # Start the example JobAuth service (listens on port 50054)
 go run jobauthd/main.go
 
