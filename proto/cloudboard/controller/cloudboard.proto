@@ -8,6 +8,8 @@ service CloudBoard {
   rpc FetchAttestation(FetchAttestationRequest) returns (FetchAttestationResponse);
   // InvokeWorkload streams workload requests to the node and returns workload responses.
   rpc InvokeWorkload(stream InvokeWorkloadRequest) returns (stream InvokeWorkloadResponse);
+  // Load retrieves the current load on the node.
+  rpc WatchLoadLevel (LoadRequest) returns (stream LoadResponse);
 }
 
 // FetchAttestationRequest is a request for a new attestation.
@@ -27,4 +29,12 @@ message InvokeWorkloadRequest {
 // InvokeWorkloadResponse is returned from workload execution.
 message InvokeWorkloadResponse {
   bytes payload = 1;
+}
+message LoadRequest {
+}
+
+message LoadResponse {
+    uint32 max_batch_size                                = 1;
+    uint32 current_batch_size                            = 2;
+    uint32 optimal_batch_size                            = 3;
 }

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: proto/cloudboard/attestation.proto
+// source: proto/cloudboard/attestation/attestation.proto
 
 package attestation
 
@@ -123,5 +123,5 @@ var Attestation_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cloudboard/attestation.proto",
+	Metadata: "proto/cloudboard/attestation/attestation.proto",
 }

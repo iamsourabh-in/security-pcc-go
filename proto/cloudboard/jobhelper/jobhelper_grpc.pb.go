@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: proto/cloudboard/jobhelper.proto
+// source: proto/cloudboard/jobhelper/jobhelper.proto
 
 package jobhelper
 
@@ -158,5 +158,5 @@ var JobHelper_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 	},
-	Metadata: "proto/cloudboard/jobhelper.proto",
+	Metadata: "proto/cloudboard/jobhelper/jobhelper.proto",
 }

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: proto/cloudboard/attestation.proto
+// source: proto/cloudboard/attestation/attestation.proto
 
 package attestation
 
@@ -30,7 +30,7 @@ type AttestRequest struct {
 
 func (x *AttestRequest) Reset() {
 	*x = AttestRequest{}
-	mi := &file_proto_cloudboard_attestation_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_attestation_attestation_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -42,7 +42,7 @@ func (x *AttestRequest) String() string {
 func (*AttestRequest) ProtoMessage() {}
 
 func (x *AttestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_attestation_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_attestation_attestation_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +55,7 @@ func (x *AttestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttestRequest.ProtoReflect.Descriptor instead.
 func (*AttestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_attestation_proto_rawDescGZIP(), []int{0}
+	return file_proto_cloudboard_attestation_attestation_proto_rawDescGZIP(), []int{0}
 }
 
 // AttestResponse is the response message for Attest.
@@ -69,7 +69,7 @@ type AttestResponse struct {
 
 func (x *AttestResponse) Reset() {
 	*x = AttestResponse{}
-	mi := &file_proto_cloudboard_attestation_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_attestation_attestation_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -81,7 +81,7 @@ func (x *AttestResponse) String() string {
 func (*AttestResponse) ProtoMessage() {}
 
 func (x *AttestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_attestation_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_attestation_attestation_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -94,7 +94,7 @@ func (x *AttestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttestResponse.ProtoReflect.Descriptor instead.
 func (*AttestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_attestation_proto_rawDescGZIP(), []int{1}
+	return file_proto_cloudboard_attestation_attestation_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AttestResponse) GetBundle() []byte {
@@ -104,11 +104,11 @@ func (x *AttestResponse) GetBundle() []byte {
 	return nil
 }
 
-var File_proto_cloudboard_attestation_proto protoreflect.FileDescriptor
+var File_proto_cloudboard_attestation_attestation_proto protoreflect.FileDescriptor
 
-const file_proto_cloudboard_attestation_proto_rawDesc = "" +
+const file_proto_cloudboard_attestation_attestation_proto_rawDesc = "" +
 	"\n" +
-	"\"proto/cloudboard/attestation.proto\x12\x16cloudboard.attestation\"\x0f\n" +
+	".proto/cloudboard/attestation/attestation.proto\x12\x16cloudboard.attestation\"\x0f\n" +
 	"\rAttestRequest\"(\n" +
 	"\x0eAttestResponse\x12\x16\n" +
 	"\x06bundle\x18\x01 \x01(\fR\x06bundle2f\n" +
@@ -116,23 +116,23 @@ const file_proto_cloudboard_attestation_proto_rawDesc = "" +
 	"\x06Attest\x12%.cloudboard.attestation.AttestRequest\x1a&.cloudboard.attestation.AttestResponseBGZEgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/attestationb\x06proto3"
 
 var (
-	file_proto_cloudboard_attestation_proto_rawDescOnce sync.Once
-	file_proto_cloudboard_attestation_proto_rawDescData []byte
+	file_proto_cloudboard_attestation_attestation_proto_rawDescOnce sync.Once
+	file_proto_cloudboard_attestation_attestation_proto_rawDescData []byte
 )
 
-func file_proto_cloudboard_attestation_proto_rawDescGZIP() []byte {
-	file_proto_cloudboard_attestation_proto_rawDescOnce.Do(func() {
-		file_proto_cloudboard_attestation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_attestation_proto_rawDesc), len(file_proto_cloudboard_attestation_proto_rawDesc)))
+func file_proto_cloudboard_attestation_attestation_proto_rawDescGZIP() []byte {
+	file_proto_cloudboard_attestation_attestation_proto_rawDescOnce.Do(func() {
+		file_proto_cloudboard_attestation_attestation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_attestation_attestation_proto_rawDesc), len(file_proto_cloudboard_attestation_attestation_proto_rawDesc)))
 	})
-	return file_proto_cloudboard_attestation_proto_rawDescData
+	return file_proto_cloudboard_attestation_attestation_proto_rawDescData
 }
 
-var file_proto_cloudboard_attestation_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_proto_cloudboard_attestation_proto_goTypes = []any{
+var file_proto_cloudboard_attestation_attestation_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_cloudboard_attestation_attestation_proto_goTypes = []any{
 	(*AttestRequest)(nil),  // 0: cloudboard.attestation.AttestRequest
 	(*AttestResponse)(nil), // 1: cloudboard.attestation.AttestResponse
 }
-var file_proto_cloudboard_attestation_proto_depIdxs = []int32{
+var file_proto_cloudboard_attestation_attestation_proto_depIdxs = []int32{
 	0, // 0: cloudboard.attestation.Attestation.Attest:input_type -> cloudboard.attestation.AttestRequest
 	1, // 1: cloudboard.attestation.Attestation.Attest:output_type -> cloudboard.attestation.AttestResponse
 	1, // [1:2] is the sub-list for method output_type
@@ -142,26 +142,26 @@ var file_proto_cloudboard_attestation_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_proto_cloudboard_attestation_proto_init() }
-func file_proto_cloudboard_attestation_proto_init() {
-	if File_proto_cloudboard_attestation_proto != nil {
+func init() { file_proto_cloudboard_attestation_attestation_proto_init() }
+func file_proto_cloudboard_attestation_attestation_proto_init() {
+	if File_proto_cloudboard_attestation_attestation_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_attestation_proto_rawDesc), len(file_proto_cloudboard_attestation_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_attestation_attestation_proto_rawDesc), len(file_proto_cloudboard_attestation_attestation_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_cloudboard_attestation_proto_goTypes,
-		DependencyIndexes: file_proto_cloudboard_attestation_proto_depIdxs,
-		MessageInfos:      file_proto_cloudboard_attestation_proto_msgTypes,
+		GoTypes:           file_proto_cloudboard_attestation_attestation_proto_goTypes,
+		DependencyIndexes: file_proto_cloudboard_attestation_attestation_proto_depIdxs,
+		MessageInfos:      file_proto_cloudboard_attestation_attestation_proto_msgTypes,
 	}.Build()
-	File_proto_cloudboard_attestation_proto = out.File
-	file_proto_cloudboard_attestation_proto_goTypes = nil
-	file_proto_cloudboard_attestation_proto_depIdxs = nil
+	File_proto_cloudboard_attestation_attestation_proto = out.File
+	file_proto_cloudboard_attestation_attestation_proto_goTypes = nil
+	file_proto_cloudboard_attestation_attestation_proto_depIdxs = nil
 }

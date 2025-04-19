@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: proto/cloudboard/jobauth.proto
+// source: proto/cloudboard/jobauth/jobauth.proto
 
 package jobauth
 
@@ -163,5 +163,5 @@ var JobAuth_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cloudboard/jobauth.proto",
+	Metadata: "proto/cloudboard/jobauth/jobauth.proto",
 }

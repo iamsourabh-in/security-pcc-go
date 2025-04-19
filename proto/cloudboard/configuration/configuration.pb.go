@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: proto/cloudboard/configuration.proto
+// source: proto/cloudboard/configuration/configuration.proto
 
 package configuration
 
@@ -32,7 +32,7 @@ type RegisterRequest struct {
 
 func (x *RegisterRequest) Reset() {
 	*x = RegisterRequest{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *RegisterRequest) String() string {
 func (*RegisterRequest) ProtoMessage() {}
 
 func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
 func (*RegisterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{0}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RegisterRequest) GetRegistration() []byte {
@@ -77,7 +77,7 @@ type ConfigurationUpdate struct {
 
 func (x *ConfigurationUpdate) Reset() {
 	*x = ConfigurationUpdate{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -89,7 +89,7 @@ func (x *ConfigurationUpdate) String() string {
 func (*ConfigurationUpdate) ProtoMessage() {}
 
 func (x *ConfigurationUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -102,7 +102,7 @@ func (x *ConfigurationUpdate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfigurationUpdate.ProtoReflect.Descriptor instead.
 func (*ConfigurationUpdate) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{1}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ConfigurationUpdate) GetUpdatePayload() []byte {
@@ -122,7 +122,7 @@ type ApplySuccessRequest struct {
 
 func (x *ApplySuccessRequest) Reset() {
 	*x = ApplySuccessRequest{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -134,7 +134,7 @@ func (x *ApplySuccessRequest) String() string {
 func (*ApplySuccessRequest) ProtoMessage() {}
 
 func (x *ApplySuccessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -147,7 +147,7 @@ func (x *ApplySuccessRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplySuccessRequest.ProtoReflect.Descriptor instead.
 func (*ApplySuccessRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{2}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ApplySuccessRequest) GetSuccessPayload() []byte {
@@ -167,7 +167,7 @@ type ApplyFailureRequest struct {
 
 func (x *ApplyFailureRequest) Reset() {
 	*x = ApplyFailureRequest{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -179,7 +179,7 @@ func (x *ApplyFailureRequest) String() string {
 func (*ApplyFailureRequest) ProtoMessage() {}
 
 func (x *ApplyFailureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -192,7 +192,7 @@ func (x *ApplyFailureRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyFailureRequest.ProtoReflect.Descriptor instead.
 func (*ApplyFailureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{3}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ApplyFailureRequest) GetFailurePayload() []byte {
@@ -212,7 +212,7 @@ type VersionInfoResponse struct {
 
 func (x *VersionInfoResponse) Reset() {
 	*x = VersionInfoResponse{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[4]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -224,7 +224,7 @@ func (x *VersionInfoResponse) String() string {
 func (*VersionInfoResponse) ProtoMessage() {}
 
 func (x *VersionInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[4]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -237,7 +237,7 @@ func (x *VersionInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VersionInfoResponse.ProtoReflect.Descriptor instead.
 func (*VersionInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{4}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *VersionInfoResponse) GetVersionInfo() []byte {
@@ -256,7 +256,7 @@ type EmptyRequest struct {
 
 func (x *EmptyRequest) Reset() {
 	*x = EmptyRequest{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[5]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -268,7 +268,7 @@ func (x *EmptyRequest) String() string {
 func (*EmptyRequest) ProtoMessage() {}
 
 func (x *EmptyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[5]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -281,7 +281,7 @@ func (x *EmptyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyRequest.ProtoReflect.Descriptor instead.
 func (*EmptyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{5}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{5}
 }
 
 // EmptyResponse is a placeholder for empty responses.
@@ -293,7 +293,7 @@ type EmptyResponse struct {
 
 func (x *EmptyResponse) Reset() {
 	*x = EmptyResponse{}
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[6]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -305,7 +305,7 @@ func (x *EmptyResponse) String() string {
 func (*EmptyResponse) ProtoMessage() {}
 
 func (x *EmptyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_configuration_proto_msgTypes[6]
+	mi := &file_proto_cloudboard_configuration_configuration_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -318,14 +318,14 @@ func (x *EmptyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyResponse.ProtoReflect.Descriptor instead.
 func (*EmptyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_configuration_proto_rawDescGZIP(), []int{6}
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP(), []int{6}
 }
 
-var File_proto_cloudboard_configuration_proto protoreflect.FileDescriptor
+var File_proto_cloudboard_configuration_configuration_proto protoreflect.FileDescriptor
 
-const file_proto_cloudboard_configuration_proto_rawDesc = "" +
+const file_proto_cloudboard_configuration_configuration_proto_rawDesc = "" +
 	"\n" +
-	"$proto/cloudboard/configuration.proto\x12\x18cloudboard.configuration\"5\n" +
+	"2proto/cloudboard/configuration/configuration.proto\x12\x18cloudboard.configuration\"5\n" +
 	"\x0fRegisterRequest\x12\"\n" +
 	"\fregistration\x18\x01 \x01(\fR\fregistration\"<\n" +
 	"\x13ConfigurationUpdate\x12%\n" +
@@ -345,19 +345,19 @@ const file_proto_cloudboard_configuration_proto_rawDesc = "" +
 	"\x1fCurrentConfigurationVersionInfo\x12&.cloudboard.configuration.EmptyRequest\x1a-.cloudboard.configuration.VersionInfoResponseBIZGgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/configurationb\x06proto3"
 
 var (
-	file_proto_cloudboard_configuration_proto_rawDescOnce sync.Once
-	file_proto_cloudboard_configuration_proto_rawDescData []byte
+	file_proto_cloudboard_configuration_configuration_proto_rawDescOnce sync.Once
+	file_proto_cloudboard_configuration_configuration_proto_rawDescData []byte
 )
 
-func file_proto_cloudboard_configuration_proto_rawDescGZIP() []byte {
-	file_proto_cloudboard_configuration_proto_rawDescOnce.Do(func() {
-		file_proto_cloudboard_configuration_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_configuration_proto_rawDesc), len(file_proto_cloudboard_configuration_proto_rawDesc)))
+func file_proto_cloudboard_configuration_configuration_proto_rawDescGZIP() []byte {
+	file_proto_cloudboard_configuration_configuration_proto_rawDescOnce.Do(func() {
+		file_proto_cloudboard_configuration_configuration_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_configuration_configuration_proto_rawDesc), len(file_proto_cloudboard_configuration_configuration_proto_rawDesc)))
 	})
-	return file_proto_cloudboard_configuration_proto_rawDescData
+	return file_proto_cloudboard_configuration_configuration_proto_rawDescData
 }
 
-var file_proto_cloudboard_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
-var file_proto_cloudboard_configuration_proto_goTypes = []any{
+var file_proto_cloudboard_configuration_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_cloudboard_configuration_configuration_proto_goTypes = []any{
 	(*RegisterRequest)(nil),     // 0: cloudboard.configuration.RegisterRequest
 	(*ConfigurationUpdate)(nil), // 1: cloudboard.configuration.ConfigurationUpdate
 	(*ApplySuccessRequest)(nil), // 2: cloudboard.configuration.ApplySuccessRequest
@@ -366,7 +366,7 @@ var file_proto_cloudboard_configuration_proto_goTypes = []any{
 	(*EmptyRequest)(nil),        // 5: cloudboard.configuration.EmptyRequest
 	(*EmptyResponse)(nil),       // 6: cloudboard.configuration.EmptyResponse
 }
-var file_proto_cloudboard_configuration_proto_depIdxs = []int32{
+var file_proto_cloudboard_configuration_configuration_proto_depIdxs = []int32{
 	0, // 0: cloudboard.configuration.Configuration.Register:input_type -> cloudboard.configuration.RegisterRequest
 	2, // 1: cloudboard.configuration.Configuration.SuccessfullyAppliedConfiguration:input_type -> cloudboard.configuration.ApplySuccessRequest
 	3, // 2: cloudboard.configuration.Configuration.FailedToApplyConfiguration:input_type -> cloudboard.configuration.ApplyFailureRequest
@@ -382,26 +382,26 @@ var file_proto_cloudboard_configuration_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_proto_cloudboard_configuration_proto_init() }
-func file_proto_cloudboard_configuration_proto_init() {
-	if File_proto_cloudboard_configuration_proto != nil {
+func init() { file_proto_cloudboard_configuration_configuration_proto_init() }
+func file_proto_cloudboard_configuration_configuration_proto_init() {
+	if File_proto_cloudboard_configuration_configuration_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_configuration_proto_rawDesc), len(file_proto_cloudboard_configuration_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_configuration_configuration_proto_rawDesc), len(file_proto_cloudboard_configuration_configuration_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_cloudboard_configuration_proto_goTypes,
-		DependencyIndexes: file_proto_cloudboard_configuration_proto_depIdxs,
-		MessageInfos:      file_proto_cloudboard_configuration_proto_msgTypes,
+		GoTypes:           file_proto_cloudboard_configuration_configuration_proto_goTypes,
+		DependencyIndexes: file_proto_cloudboard_configuration_configuration_proto_depIdxs,
+		MessageInfos:      file_proto_cloudboard_configuration_configuration_proto_msgTypes,
 	}.Build()
-	File_proto_cloudboard_configuration_proto = out.File
-	file_proto_cloudboard_configuration_proto_goTypes = nil
-	file_proto_cloudboard_configuration_proto_depIdxs = nil
+	File_proto_cloudboard_configuration_configuration_proto = out.File
+	file_proto_cloudboard_configuration_configuration_proto_goTypes = nil
+	file_proto_cloudboard_configuration_configuration_proto_depIdxs = nil
 }

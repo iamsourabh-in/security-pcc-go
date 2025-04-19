@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: proto/cloudboard/configuration.proto
+// source: proto/cloudboard/configuration/configuration.proto
 
 package configuration
 
@@ -243,5 +243,5 @@ var Configuration_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cloudboard/configuration.proto",
+	Metadata: "proto/cloudboard/configuration/configuration.proto",
 }

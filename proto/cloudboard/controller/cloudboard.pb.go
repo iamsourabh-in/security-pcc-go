@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: proto/cloudboard/cloudboard.proto
+// source: proto/cloudboard/controller/cloudboard.proto
 
 package controller
 
@@ -30,7 +30,7 @@ type FetchAttestationRequest struct {
 
 func (x *FetchAttestationRequest) Reset() {
 	*x = FetchAttestationRequest{}
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -42,7 +42,7 @@ func (x *FetchAttestationRequest) String() string {
 func (*FetchAttestationRequest) ProtoMessage() {}
 
 func (x *FetchAttestationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +55,7 @@ func (x *FetchAttestationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchAttestationRequest.ProtoReflect.Descriptor instead.
 func (*FetchAttestationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_cloudboard_proto_rawDescGZIP(), []int{0}
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP(), []int{0}
 }
 
 // FetchAttestationResponse contains the attestation bundle.
@@ -68,7 +68,7 @@ type FetchAttestationResponse struct {
 
 func (x *FetchAttestationResponse) Reset() {
 	*x = FetchAttestationResponse{}
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +80,7 @@ func (x *FetchAttestationResponse) String() string {
 func (*FetchAttestationResponse) ProtoMessage() {}
 
 func (x *FetchAttestationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +93,7 @@ func (x *FetchAttestationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchAttestationResponse.ProtoReflect.Descriptor instead.
 func (*FetchAttestationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_cloudboard_proto_rawDescGZIP(), []int{1}
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *FetchAttestationResponse) GetBundle() []byte {
@@ -114,7 +114,7 @@ type InvokeWorkloadRequest struct {
 
 func (x *InvokeWorkloadRequest) Reset() {
 	*x = InvokeWorkloadRequest{}
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -126,7 +126,7 @@ func (x *InvokeWorkloadRequest) String() string {
 func (*InvokeWorkloadRequest) ProtoMessage() {}
 
 func (x *InvokeWorkloadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -139,7 +139,7 @@ func (x *InvokeWorkloadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvokeWorkloadRequest.ProtoReflect.Descriptor instead.
 func (*InvokeWorkloadRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_cloudboard_proto_rawDescGZIP(), []int{2}
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *InvokeWorkloadRequest) GetPayload() []byte {
@@ -159,7 +159,7 @@ type InvokeWorkloadResponse struct {
 
 func (x *InvokeWorkloadResponse) Reset() {
 	*x = InvokeWorkloadResponse{}
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -171,7 +171,7 @@ func (x *InvokeWorkloadResponse) String() string {
 func (*InvokeWorkloadResponse) ProtoMessage() {}
 
 func (x *InvokeWorkloadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_cloudboard_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -184,7 +184,7 @@ func (x *InvokeWorkloadResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvokeWorkloadResponse.ProtoReflect.Descriptor instead.
 func (*InvokeWorkloadResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_cloudboard_proto_rawDescGZIP(), []int{3}
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *InvokeWorkloadResponse) GetPayload() []byte {
@@ -194,74 +194,180 @@ func (x *InvokeWorkloadResponse) GetPayload() []byte {
 	return nil
 }
 
-var File_proto_cloudboard_cloudboard_proto protoreflect.FileDescriptor
+type LoadRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
 
-const file_proto_cloudboard_cloudboard_proto_rawDesc = "" +
+func (x *LoadRequest) Reset() {
+	*x = LoadRequest{}
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadRequest) ProtoMessage() {}
+
+func (x *LoadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadRequest.ProtoReflect.Descriptor instead.
+func (*LoadRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP(), []int{4}
+}
+
+type LoadResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	MaxBatchSize     uint32                 `protobuf:"varint,1,opt,name=max_batch_size,json=maxBatchSize,proto3" json:"max_batch_size,omitempty"`
+	CurrentBatchSize uint32                 `protobuf:"varint,2,opt,name=current_batch_size,json=currentBatchSize,proto3" json:"current_batch_size,omitempty"`
+	OptimalBatchSize uint32                 `protobuf:"varint,3,opt,name=optimal_batch_size,json=optimalBatchSize,proto3" json:"optimal_batch_size,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *LoadResponse) Reset() {
+	*x = LoadResponse{}
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadResponse) ProtoMessage() {}
+
+func (x *LoadResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cloudboard_controller_cloudboard_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadResponse.ProtoReflect.Descriptor instead.
+func (*LoadResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *LoadResponse) GetMaxBatchSize() uint32 {
+	if x != nil {
+		return x.MaxBatchSize
+	}
+	return 0
+}
+
+func (x *LoadResponse) GetCurrentBatchSize() uint32 {
+	if x != nil {
+		return x.CurrentBatchSize
+	}
+	return 0
+}
+
+func (x *LoadResponse) GetOptimalBatchSize() uint32 {
+	if x != nil {
+		return x.OptimalBatchSize
+	}
+	return 0
+}
+
+var File_proto_cloudboard_controller_cloudboard_proto protoreflect.FileDescriptor
+
+const file_proto_cloudboard_controller_cloudboard_proto_rawDesc = "" +
 	"\n" +
-	"!proto/cloudboard/cloudboard.proto\x12\x15cloudboard.controller\"\x19\n" +
+	",proto/cloudboard/controller/cloudboard.proto\x12\x15cloudboard.controller\"\x19\n" +
 	"\x17FetchAttestationRequest\"2\n" +
 	"\x18FetchAttestationResponse\x12\x16\n" +
 	"\x06bundle\x18\x01 \x01(\fR\x06bundle\"1\n" +
 	"\x15InvokeWorkloadRequest\x12\x18\n" +
 	"\apayload\x18\x01 \x01(\fR\apayload\"2\n" +
 	"\x16InvokeWorkloadResponse\x12\x18\n" +
-	"\apayload\x18\x01 \x01(\fR\apayload2\xf4\x01\n" +
+	"\apayload\x18\x01 \x01(\fR\apayload\"\r\n" +
+	"\vLoadRequest\"\x90\x01\n" +
+	"\fLoadResponse\x12$\n" +
+	"\x0emax_batch_size\x18\x01 \x01(\rR\fmaxBatchSize\x12,\n" +
+	"\x12current_batch_size\x18\x02 \x01(\rR\x10currentBatchSize\x12,\n" +
+	"\x12optimal_batch_size\x18\x03 \x01(\rR\x10optimalBatchSize2\xd1\x02\n" +
 	"\n" +
 	"CloudBoard\x12s\n" +
 	"\x10FetchAttestation\x12..cloudboard.controller.FetchAttestationRequest\x1a/.cloudboard.controller.FetchAttestationResponse\x12q\n" +
-	"\x0eInvokeWorkload\x12,.cloudboard.controller.InvokeWorkloadRequest\x1a-.cloudboard.controller.InvokeWorkloadResponse(\x010\x01BFZDgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/controllerb\x06proto3"
+	"\x0eInvokeWorkload\x12,.cloudboard.controller.InvokeWorkloadRequest\x1a-.cloudboard.controller.InvokeWorkloadResponse(\x010\x01\x12[\n" +
+	"\x0eWatchLoadLevel\x12\".cloudboard.controller.LoadRequest\x1a#.cloudboard.controller.LoadResponse0\x01BFZDgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/controllerb\x06proto3"
 
 var (
-	file_proto_cloudboard_cloudboard_proto_rawDescOnce sync.Once
-	file_proto_cloudboard_cloudboard_proto_rawDescData []byte
+	file_proto_cloudboard_controller_cloudboard_proto_rawDescOnce sync.Once
+	file_proto_cloudboard_controller_cloudboard_proto_rawDescData []byte
 )
 
-func file_proto_cloudboard_cloudboard_proto_rawDescGZIP() []byte {
-	file_proto_cloudboard_cloudboard_proto_rawDescOnce.Do(func() {
-		file_proto_cloudboard_cloudboard_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_cloudboard_proto_rawDesc), len(file_proto_cloudboard_cloudboard_proto_rawDesc)))
+func file_proto_cloudboard_controller_cloudboard_proto_rawDescGZIP() []byte {
+	file_proto_cloudboard_controller_cloudboard_proto_rawDescOnce.Do(func() {
+		file_proto_cloudboard_controller_cloudboard_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_controller_cloudboard_proto_rawDesc), len(file_proto_cloudboard_controller_cloudboard_proto_rawDesc)))
 	})
-	return file_proto_cloudboard_cloudboard_proto_rawDescData
+	return file_proto_cloudboard_controller_cloudboard_proto_rawDescData
 }
 
-var file_proto_cloudboard_cloudboard_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_proto_cloudboard_cloudboard_proto_goTypes = []any{
+var file_proto_cloudboard_controller_cloudboard_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_cloudboard_controller_cloudboard_proto_goTypes = []any{
 	(*FetchAttestationRequest)(nil),  // 0: cloudboard.controller.FetchAttestationRequest
 	(*FetchAttestationResponse)(nil), // 1: cloudboard.controller.FetchAttestationResponse
 	(*InvokeWorkloadRequest)(nil),    // 2: cloudboard.controller.InvokeWorkloadRequest
 	(*InvokeWorkloadResponse)(nil),   // 3: cloudboard.controller.InvokeWorkloadResponse
+	(*LoadRequest)(nil),              // 4: cloudboard.controller.LoadRequest
+	(*LoadResponse)(nil),             // 5: cloudboard.controller.LoadResponse
 }
-var file_proto_cloudboard_cloudboard_proto_depIdxs = []int32{
+var file_proto_cloudboard_controller_cloudboard_proto_depIdxs = []int32{
 	0, // 0: cloudboard.controller.CloudBoard.FetchAttestation:input_type -> cloudboard.controller.FetchAttestationRequest
 	2, // 1: cloudboard.controller.CloudBoard.InvokeWorkload:input_type -> cloudboard.controller.InvokeWorkloadRequest
-	1, // 2: cloudboard.controller.CloudBoard.FetchAttestation:output_type -> cloudboard.controller.FetchAttestationResponse
-	3, // 3: cloudboard.controller.CloudBoard.InvokeWorkload:output_type -> cloudboard.controller.InvokeWorkloadResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: cloudboard.controller.CloudBoard.WatchLoadLevel:input_type -> cloudboard.controller.LoadRequest
+	1, // 3: cloudboard.controller.CloudBoard.FetchAttestation:output_type -> cloudboard.controller.FetchAttestationResponse
+	3, // 4: cloudboard.controller.CloudBoard.InvokeWorkload:output_type -> cloudboard.controller.InvokeWorkloadResponse
+	5, // 5: cloudboard.controller.CloudBoard.WatchLoadLevel:output_type -> cloudboard.controller.LoadResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_proto_cloudboard_cloudboard_proto_init() }
-func file_proto_cloudboard_cloudboard_proto_init() {
-	if File_proto_cloudboard_cloudboard_proto != nil {
+func init() { file_proto_cloudboard_controller_cloudboard_proto_init() }
+func file_proto_cloudboard_controller_cloudboard_proto_init() {
+	if File_proto_cloudboard_controller_cloudboard_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_cloudboard_proto_rawDesc), len(file_proto_cloudboard_cloudboard_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_controller_cloudboard_proto_rawDesc), len(file_proto_cloudboard_controller_cloudboard_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_cloudboard_cloudboard_proto_goTypes,
-		DependencyIndexes: file_proto_cloudboard_cloudboard_proto_depIdxs,
-		MessageInfos:      file_proto_cloudboard_cloudboard_proto_msgTypes,
+		GoTypes:           file_proto_cloudboard_controller_cloudboard_proto_goTypes,
+		DependencyIndexes: file_proto_cloudboard_controller_cloudboard_proto_depIdxs,
+		MessageInfos:      file_proto_cloudboard_controller_cloudboard_proto_msgTypes,
 	}.Build()
-	File_proto_cloudboard_cloudboard_proto = out.File
-	file_proto_cloudboard_cloudboard_proto_goTypes = nil
-	file_proto_cloudboard_cloudboard_proto_depIdxs = nil
+	File_proto_cloudboard_controller_cloudboard_proto = out.File
+	file_proto_cloudboard_controller_cloudboard_proto_goTypes = nil
+	file_proto_cloudboard_controller_cloudboard_proto_depIdxs = nil
 }

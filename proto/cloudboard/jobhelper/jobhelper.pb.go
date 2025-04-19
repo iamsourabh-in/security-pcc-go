@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: proto/cloudboard/jobhelper.proto
+// source: proto/cloudboard/jobhelper/jobhelper.proto
 
 package jobhelper
 
@@ -31,7 +31,7 @@ type WorkloadRequest struct {
 
 func (x *WorkloadRequest) Reset() {
 	*x = WorkloadRequest{}
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *WorkloadRequest) String() string {
 func (*WorkloadRequest) ProtoMessage() {}
 
 func (x *WorkloadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *WorkloadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkloadRequest.ProtoReflect.Descriptor instead.
 func (*WorkloadRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobhelper_proto_rawDescGZIP(), []int{0}
+	return file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *WorkloadRequest) GetPayload() []byte {
@@ -76,7 +76,7 @@ type WorkloadResponse struct {
 
 func (x *WorkloadResponse) Reset() {
 	*x = WorkloadResponse{}
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +88,7 @@ func (x *WorkloadResponse) String() string {
 func (*WorkloadResponse) ProtoMessage() {}
 
 func (x *WorkloadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +101,7 @@ func (x *WorkloadResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkloadResponse.ProtoReflect.Descriptor instead.
 func (*WorkloadResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobhelper_proto_rawDescGZIP(), []int{1}
+	return file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *WorkloadResponse) GetPayload() []byte {
@@ -121,7 +121,7 @@ type TeardownRequest struct {
 
 func (x *TeardownRequest) Reset() {
 	*x = TeardownRequest{}
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -133,7 +133,7 @@ func (x *TeardownRequest) String() string {
 func (*TeardownRequest) ProtoMessage() {}
 
 func (x *TeardownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -146,7 +146,7 @@ func (x *TeardownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TeardownRequest.ProtoReflect.Descriptor instead.
 func (*TeardownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobhelper_proto_rawDescGZIP(), []int{2}
+	return file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *TeardownRequest) GetPayload() []byte {
@@ -165,7 +165,7 @@ type EmptyResponse struct {
 
 func (x *EmptyResponse) Reset() {
 	*x = EmptyResponse{}
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -177,7 +177,7 @@ func (x *EmptyResponse) String() string {
 func (*EmptyResponse) ProtoMessage() {}
 
 func (x *EmptyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobhelper_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -190,14 +190,14 @@ func (x *EmptyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyResponse.ProtoReflect.Descriptor instead.
 func (*EmptyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobhelper_proto_rawDescGZIP(), []int{3}
+	return file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescGZIP(), []int{3}
 }
 
-var File_proto_cloudboard_jobhelper_proto protoreflect.FileDescriptor
+var File_proto_cloudboard_jobhelper_jobhelper_proto protoreflect.FileDescriptor
 
-const file_proto_cloudboard_jobhelper_proto_rawDesc = "" +
+const file_proto_cloudboard_jobhelper_jobhelper_proto_rawDesc = "" +
 	"\n" +
-	" proto/cloudboard/jobhelper.proto\x12\x14cloudboard.jobhelper\"+\n" +
+	"*proto/cloudboard/jobhelper/jobhelper.proto\x12\x14cloudboard.jobhelper\"+\n" +
 	"\x0fWorkloadRequest\x12\x18\n" +
 	"\apayload\x18\x01 \x01(\fR\apayload\",\n" +
 	"\x10WorkloadResponse\x12\x18\n" +
@@ -210,25 +210,25 @@ const file_proto_cloudboard_jobhelper_proto_rawDesc = "" +
 	"\bTeardown\x12%.cloudboard.jobhelper.TeardownRequest\x1a#.cloudboard.jobhelper.EmptyResponseBEZCgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/jobhelperb\x06proto3"
 
 var (
-	file_proto_cloudboard_jobhelper_proto_rawDescOnce sync.Once
-	file_proto_cloudboard_jobhelper_proto_rawDescData []byte
+	file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescOnce sync.Once
+	file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescData []byte
 )
 
-func file_proto_cloudboard_jobhelper_proto_rawDescGZIP() []byte {
-	file_proto_cloudboard_jobhelper_proto_rawDescOnce.Do(func() {
-		file_proto_cloudboard_jobhelper_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobhelper_proto_rawDesc), len(file_proto_cloudboard_jobhelper_proto_rawDesc)))
+func file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescGZIP() []byte {
+	file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescOnce.Do(func() {
+		file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobhelper_jobhelper_proto_rawDesc), len(file_proto_cloudboard_jobhelper_jobhelper_proto_rawDesc)))
 	})
-	return file_proto_cloudboard_jobhelper_proto_rawDescData
+	return file_proto_cloudboard_jobhelper_jobhelper_proto_rawDescData
 }
 
-var file_proto_cloudboard_jobhelper_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_proto_cloudboard_jobhelper_proto_goTypes = []any{
+var file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_cloudboard_jobhelper_jobhelper_proto_goTypes = []any{
 	(*WorkloadRequest)(nil),  // 0: cloudboard.jobhelper.WorkloadRequest
 	(*WorkloadResponse)(nil), // 1: cloudboard.jobhelper.WorkloadResponse
 	(*TeardownRequest)(nil),  // 2: cloudboard.jobhelper.TeardownRequest
 	(*EmptyResponse)(nil),    // 3: cloudboard.jobhelper.EmptyResponse
 }
-var file_proto_cloudboard_jobhelper_proto_depIdxs = []int32{
+var file_proto_cloudboard_jobhelper_jobhelper_proto_depIdxs = []int32{
 	0, // 0: cloudboard.jobhelper.JobHelper.InvokeWorkload:input_type -> cloudboard.jobhelper.WorkloadRequest
 	2, // 1: cloudboard.jobhelper.JobHelper.Teardown:input_type -> cloudboard.jobhelper.TeardownRequest
 	1, // 2: cloudboard.jobhelper.JobHelper.InvokeWorkload:output_type -> cloudboard.jobhelper.WorkloadResponse
@@ -240,26 +240,26 @@ var file_proto_cloudboard_jobhelper_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_proto_cloudboard_jobhelper_proto_init() }
-func file_proto_cloudboard_jobhelper_proto_init() {
-	if File_proto_cloudboard_jobhelper_proto != nil {
+func init() { file_proto_cloudboard_jobhelper_jobhelper_proto_init() }
+func file_proto_cloudboard_jobhelper_jobhelper_proto_init() {
+	if File_proto_cloudboard_jobhelper_jobhelper_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobhelper_proto_rawDesc), len(file_proto_cloudboard_jobhelper_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobhelper_jobhelper_proto_rawDesc), len(file_proto_cloudboard_jobhelper_jobhelper_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_cloudboard_jobhelper_proto_goTypes,
-		DependencyIndexes: file_proto_cloudboard_jobhelper_proto_depIdxs,
-		MessageInfos:      file_proto_cloudboard_jobhelper_proto_msgTypes,
+		GoTypes:           file_proto_cloudboard_jobhelper_jobhelper_proto_goTypes,
+		DependencyIndexes: file_proto_cloudboard_jobhelper_jobhelper_proto_depIdxs,
+		MessageInfos:      file_proto_cloudboard_jobhelper_jobhelper_proto_msgTypes,
 	}.Build()
-	File_proto_cloudboard_jobhelper_proto = out.File
-	file_proto_cloudboard_jobhelper_proto_goTypes = nil
-	file_proto_cloudboard_jobhelper_proto_depIdxs = nil
+	File_proto_cloudboard_jobhelper_jobhelper_proto = out.File
+	file_proto_cloudboard_jobhelper_jobhelper_proto_goTypes = nil
+	file_proto_cloudboard_jobhelper_jobhelper_proto_depIdxs = nil
 }

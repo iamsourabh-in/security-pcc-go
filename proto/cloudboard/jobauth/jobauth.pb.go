@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: proto/cloudboard/jobauth.proto
+// source: proto/cloudboard/jobauth/jobauth.proto
 
 package jobauth
 
@@ -31,7 +31,7 @@ type GenerateTokenRequest struct {
 
 func (x *GenerateTokenRequest) Reset() {
 	*x = GenerateTokenRequest{}
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *GenerateTokenRequest) String() string {
 func (*GenerateTokenRequest) ProtoMessage() {}
 
 func (x *GenerateTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[0]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *GenerateTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateTokenRequest.ProtoReflect.Descriptor instead.
 func (*GenerateTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobauth_proto_rawDescGZIP(), []int{0}
+	return file_proto_cloudboard_jobauth_jobauth_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GenerateTokenRequest) GetJobMetadata() []byte {
@@ -76,7 +76,7 @@ type GenerateTokenResponse struct {
 
 func (x *GenerateTokenResponse) Reset() {
 	*x = GenerateTokenResponse{}
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +88,7 @@ func (x *GenerateTokenResponse) String() string {
 func (*GenerateTokenResponse) ProtoMessage() {}
 
 func (x *GenerateTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[1]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +101,7 @@ func (x *GenerateTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateTokenResponse.ProtoReflect.Descriptor instead.
 func (*GenerateTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobauth_proto_rawDescGZIP(), []int{1}
+	return file_proto_cloudboard_jobauth_jobauth_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GenerateTokenResponse) GetToken() []byte {
@@ -121,7 +121,7 @@ type ValidateTokenRequest struct {
 
 func (x *ValidateTokenRequest) Reset() {
 	*x = ValidateTokenRequest{}
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -133,7 +133,7 @@ func (x *ValidateTokenRequest) String() string {
 func (*ValidateTokenRequest) ProtoMessage() {}
 
 func (x *ValidateTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[2]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -146,7 +146,7 @@ func (x *ValidateTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateTokenRequest.ProtoReflect.Descriptor instead.
 func (*ValidateTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobauth_proto_rawDescGZIP(), []int{2}
+	return file_proto_cloudboard_jobauth_jobauth_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ValidateTokenRequest) GetToken() []byte {
@@ -166,7 +166,7 @@ type ValidateTokenResponse struct {
 
 func (x *ValidateTokenResponse) Reset() {
 	*x = ValidateTokenResponse{}
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -178,7 +178,7 @@ func (x *ValidateTokenResponse) String() string {
 func (*ValidateTokenResponse) ProtoMessage() {}
 
 func (x *ValidateTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_cloudboard_jobauth_proto_msgTypes[3]
+	mi := &file_proto_cloudboard_jobauth_jobauth_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -191,7 +191,7 @@ func (x *ValidateTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateTokenResponse.ProtoReflect.Descriptor instead.
 func (*ValidateTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_cloudboard_jobauth_proto_rawDescGZIP(), []int{3}
+	return file_proto_cloudboard_jobauth_jobauth_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ValidateTokenResponse) GetValid() bool {
@@ -201,11 +201,11 @@ func (x *ValidateTokenResponse) GetValid() bool {
 	return false
 }
 
-var File_proto_cloudboard_jobauth_proto protoreflect.FileDescriptor
+var File_proto_cloudboard_jobauth_jobauth_proto protoreflect.FileDescriptor
 
-const file_proto_cloudboard_jobauth_proto_rawDesc = "" +
+const file_proto_cloudboard_jobauth_jobauth_proto_rawDesc = "" +
 	"\n" +
-	"\x1eproto/cloudboard/jobauth.proto\x12\x12cloudboard.jobauth\"9\n" +
+	"&proto/cloudboard/jobauth/jobauth.proto\x12\x12cloudboard.jobauth\"9\n" +
 	"\x14GenerateTokenRequest\x12!\n" +
 	"\fjob_metadata\x18\x01 \x01(\fR\vjobMetadata\"-\n" +
 	"\x15GenerateTokenResponse\x12\x14\n" +
@@ -219,25 +219,25 @@ const file_proto_cloudboard_jobauth_proto_rawDesc = "" +
 	"\rValidateToken\x12(.cloudboard.jobauth.ValidateTokenRequest\x1a).cloudboard.jobauth.ValidateTokenResponseBCZAgithub.com/iamsourabh-in/security-pcc-go/proto/cloudboard/jobauthb\x06proto3"
 
 var (
-	file_proto_cloudboard_jobauth_proto_rawDescOnce sync.Once
-	file_proto_cloudboard_jobauth_proto_rawDescData []byte
+	file_proto_cloudboard_jobauth_jobauth_proto_rawDescOnce sync.Once
+	file_proto_cloudboard_jobauth_jobauth_proto_rawDescData []byte
 )
 
-func file_proto_cloudboard_jobauth_proto_rawDescGZIP() []byte {
-	file_proto_cloudboard_jobauth_proto_rawDescOnce.Do(func() {
-		file_proto_cloudboard_jobauth_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobauth_proto_rawDesc), len(file_proto_cloudboard_jobauth_proto_rawDesc)))
+func file_proto_cloudboard_jobauth_jobauth_proto_rawDescGZIP() []byte {
+	file_proto_cloudboard_jobauth_jobauth_proto_rawDescOnce.Do(func() {
+		file_proto_cloudboard_jobauth_jobauth_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobauth_jobauth_proto_rawDesc), len(file_proto_cloudboard_jobauth_jobauth_proto_rawDesc)))
 	})
-	return file_proto_cloudboard_jobauth_proto_rawDescData
+	return file_proto_cloudboard_jobauth_jobauth_proto_rawDescData
 }
 
-var file_proto_cloudboard_jobauth_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_proto_cloudboard_jobauth_proto_goTypes = []any{
+var file_proto_cloudboard_jobauth_jobauth_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_cloudboard_jobauth_jobauth_proto_goTypes = []any{
 	(*GenerateTokenRequest)(nil),  // 0: cloudboard.jobauth.GenerateTokenRequest
 	(*GenerateTokenResponse)(nil), // 1: cloudboard.jobauth.GenerateTokenResponse
 	(*ValidateTokenRequest)(nil),  // 2: cloudboard.jobauth.ValidateTokenRequest
 	(*ValidateTokenResponse)(nil), // 3: cloudboard.jobauth.ValidateTokenResponse
 }
-var file_proto_cloudboard_jobauth_proto_depIdxs = []int32{
+var file_proto_cloudboard_jobauth_jobauth_proto_depIdxs = []int32{
 	0, // 0: cloudboard.jobauth.JobAuth.GenerateToken:input_type -> cloudboard.jobauth.GenerateTokenRequest
 	2, // 1: cloudboard.jobauth.JobAuth.ValidateToken:input_type -> cloudboard.jobauth.ValidateTokenRequest
 	1, // 2: cloudboard.jobauth.JobAuth.GenerateToken:output_type -> cloudboard.jobauth.GenerateTokenResponse
@@ -249,26 +249,26 @@ var file_proto_cloudboard_jobauth_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_proto_cloudboard_jobauth_proto_init() }
-func file_proto_cloudboard_jobauth_proto_init() {
-	if File_proto_cloudboard_jobauth_proto != nil {
+func init() { file_proto_cloudboard_jobauth_jobauth_proto_init() }
+func file_proto_cloudboard_jobauth_jobauth_proto_init() {
+	if File_proto_cloudboard_jobauth_jobauth_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobauth_proto_rawDesc), len(file_proto_cloudboard_jobauth_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cloudboard_jobauth_jobauth_proto_rawDesc), len(file_proto_cloudboard_jobauth_jobauth_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_cloudboard_jobauth_proto_goTypes,
-		DependencyIndexes: file_proto_cloudboard_jobauth_proto_depIdxs,
-		MessageInfos:      file_proto_cloudboard_jobauth_proto_msgTypes,
+		GoTypes:           file_proto_cloudboard_jobauth_jobauth_proto_goTypes,
+		DependencyIndexes: file_proto_cloudboard_jobauth_jobauth_proto_depIdxs,
+		MessageInfos:      file_proto_cloudboard_jobauth_jobauth_proto_msgTypes,
 	}.Build()
-	File_proto_cloudboard_jobauth_proto = out.File
-	file_proto_cloudboard_jobauth_proto_goTypes = nil
-	file_proto_cloudboard_jobauth_proto_depIdxs = nil
+	File_proto_cloudboard_jobauth_jobauth_proto = out.File
+	file_proto_cloudboard_jobauth_jobauth_proto_goTypes = nil
+	file_proto_cloudboard_jobauth_jobauth_proto_depIdxs = nil
 }

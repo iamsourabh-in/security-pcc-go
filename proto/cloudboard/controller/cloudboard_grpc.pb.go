@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: proto/cloudboard/cloudboard.proto
+// source: proto/cloudboard/controller/cloudboard.proto
 
 package controller
 
@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	CloudBoard_FetchAttestation_FullMethodName = "/cloudboard.controller.CloudBoard/FetchAttestation"
 	CloudBoard_InvokeWorkload_FullMethodName   = "/cloudboard.controller.CloudBoard/InvokeWorkload"
+	CloudBoard_WatchLoadLevel_FullMethodName   = "/cloudboard.controller.CloudBoard/WatchLoadLevel"
 )
 
 // CloudBoardClient is the client API for CloudBoard service.
@@ -33,6 +34,8 @@ type CloudBoardClient interface {
 	FetchAttestation(ctx context.Context, in *FetchAttestationRequest, opts ...grpc.CallOption) (*FetchAttestationResponse, error)
 	// InvokeWorkload streams workload requests to the node and returns workload responses.
 	InvokeWorkload(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[InvokeWorkloadRequest, InvokeWorkloadResponse], error)
+	// Load retrieves the current load on the node.
+	WatchLoadLevel(ctx context.Context, in *LoadRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[LoadResponse], error)
 }
 
 type cloudBoardClient struct {
@@ -66,6 +69,25 @@ func (c *cloudBoardClient) InvokeWorkload(ctx context.Context, opts ...grpc.Call
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type CloudBoard_InvokeWorkloadClient = grpc.BidiStreamingClient[InvokeWorkloadRequest, InvokeWorkloadResponse]
 
+func (c *cloudBoardClient) WatchLoadLevel(ctx context.Context, in *LoadRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[LoadResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &CloudBoard_ServiceDesc.Streams[1], CloudBoard_WatchLoadLevel_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[LoadRequest, LoadResponse]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type CloudBoard_WatchLoadLevelClient = grpc.ServerStreamingClient[LoadResponse]
+
 // CloudBoardServer is the server API for CloudBoard service.
 // All implementations must embed UnimplementedCloudBoardServer
 // for forward compatibility.
@@ -76,6 +98,8 @@ type CloudBoardServer interface {
 	FetchAttestation(context.Context, *FetchAttestationRequest) (*FetchAttestationResponse, error)
 	// InvokeWorkload streams workload requests to the node and returns workload responses.
 	InvokeWorkload(grpc.BidiStreamingServer[InvokeWorkloadRequest, InvokeWorkloadResponse]) error
+	// Load retrieves the current load on the node.
+	WatchLoadLevel(*LoadRequest, grpc.ServerStreamingServer[LoadResponse]) error
 	mustEmbedUnimplementedCloudBoardServer()
 }
 
@@ -91,6 +115,9 @@ func (UnimplementedCloudBoardServer) FetchAttestation(context.Context, *FetchAtt
 }
 func (UnimplementedCloudBoardServer) InvokeWorkload(grpc.BidiStreamingServer[InvokeWorkloadRequest, InvokeWorkloadResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method InvokeWorkload not implemented")
+}
+func (UnimplementedCloudBoardServer) WatchLoadLevel(*LoadRequest, grpc.ServerStreamingServer[LoadResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method WatchLoadLevel not implemented")
 }
 func (UnimplementedCloudBoardServer) mustEmbedUnimplementedCloudBoardServer() {}
 func (UnimplementedCloudBoardServer) testEmbeddedByValue()                    {}
@@ -138,6 +165,17 @@ func _CloudBoard_InvokeWorkload_Handler(srv interface{}, stream grpc.ServerStrea
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type CloudBoard_InvokeWorkloadServer = grpc.BidiStreamingServer[InvokeWorkloadRequest, InvokeWorkloadResponse]
 
+func _CloudBoard_WatchLoadLevel_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(LoadRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(CloudBoardServer).WatchLoadLevel(m, &grpc.GenericServerStream[LoadRequest, LoadResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type CloudBoard_WatchLoadLevelServer = grpc.ServerStreamingServer[LoadResponse]
+
 // CloudBoard_ServiceDesc is the grpc.ServiceDesc for CloudBoard service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -157,6 +195,11 @@ var CloudBoard_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 			ClientStreams: true,
 		},
+		{
+			StreamName:    "WatchLoadLevel",
+			Handler:       _CloudBoard_WatchLoadLevel_Handler,
+			ServerStreams: true,
+		},
 	},
-	Metadata: "proto/cloudboard/cloudboard.proto",
+	Metadata: "proto/cloudboard/controller/cloudboard.proto",
 }

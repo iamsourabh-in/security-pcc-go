@@ -24,36 +24,36 @@ func main() {
 	jobhelperBin := flag.String("jobhelper-bin", "./jobhelperd", "path to jobhelper binary")
 	jobhelperPoolSize := flag.Int("jobhelper-pool-size", 5, "number of jobhelper processes to maintain")
 	flag.Parse()
-	fmt.Println("done config")
+
 	// Connect to Attestation service
-	attestConn, err := grpc.NewClient(*attestAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	attestGrpcConn, err := grpc.NewClient(*attestAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to dial attestation service: %v\n", err)
 		os.Exit(1)
 	}
-	defer attestConn.Close()
-	attestClient := attestation.NewAttestationClient(attestConn)
+	defer attestGrpcConn.Close()
+	attestClient := attestation.NewAttestationClient(attestGrpcConn)
 
 	// Connect to JobAuth service
-	jobauthConn, err := grpc.NewClient(*jobauthAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	jobauthGrpcConn, err := grpc.NewClient(*jobauthAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to dial jobauth service: %v\n", err)
 		os.Exit(1)
 	}
-	defer jobauthConn.Close()
-	jobauthClient := jobauth.NewJobAuthClient(jobauthConn)
+	defer jobauthGrpcConn.Close()
+	jobauthClient := jobauth.NewJobAuthClient(jobauthGrpcConn)
 
 	// Initialize JobHelper process pool
-	helperPool := make(chan *helperProc, *jobhelperPoolSize)
+	// JobHelper processes will be drawn per-request from the pool
+	jobHelperPool := make(chan *helperProc, *jobhelperPoolSize)
 	for i := 0; i < *jobhelperPoolSize; i++ {
 		proc, err := spawnHelperProc(context.Background(), *jobhelperBin, *jobauthAddr)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "failed to spawn jobhelper process: %v\n", err)
 			os.Exit(1)
 		}
-		helperPool <- proc
+		jobHelperPool <- proc
 	}
-	// JobHelper processes will be drawn per-request from the pool
 
 	// Start CloudBoard gRPC server
 	lis, err := net.Listen("tcp", *listenAddr)
@@ -67,7 +67,7 @@ func main() {
 		jobauth:      jobauthClient,
 		jobhelperBin: *jobhelperBin,
 		jobauthAddr:  *jobauthAddr,
-		helperPool:   helperPool,
+		helperPool:   jobHelperPool,
 	}
 	controller.RegisterCloudBoardServer(grpcServer, srv)
 
