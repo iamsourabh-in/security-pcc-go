@@ -9,7 +9,7 @@ git clone https://github.com/iamsourabh-in/security-pcc-go.git
 ### 1. Core Daemons & Responsibilities
 
 *   `cloudboardd`: The main controller daemon on each node. Manages configuration, interacts with helper daemons, runs XPC/gRPC servers, enforces policies, schedules workloads, and reports health/metrics.
-*   `cb_attestationd`: A Swift/XPC front-end for the `CloudAttestation` library. Used by `cloudboardd` for node attestation, fetching proofs, and validating certificates/policies.
+*   `cb_attestationd`: A GRPC front-end for the `CloudAttestation` library. Used by `cloudboardd` for node attestation, fetching proofs, and validating certificates/policies.
 *   `cb_configurationd`: Manages node configuration ("what should I be doing?"). Implements a registry state machine, fetches manifests/configs, applies changes, and writes local state.
 *   `cb_jobhelper`: A less-privileged helper daemon. `cloudboardd` delegates workload launch and I/O management to it.
 *   `cloudboardd_follower`: A standby/cross‑site follower mirroring registry state from a leader `cloudboardd` for high availability.

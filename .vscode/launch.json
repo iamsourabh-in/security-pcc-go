@@ -65,7 +65,8 @@
                 "--jobauth-addr=localhost:50054",   // Connects to JobAuth Service
             ],
             "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
+            "internalConsoleOptions": "neverOpen",
+            "preLaunchTask": "Build jobhelperd for cloudboardd"
         }
     ],
     "compounds": [

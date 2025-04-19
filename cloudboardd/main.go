@@ -22,6 +22,7 @@ func main() {
 	attestAddr := flag.String("attest-addr", ":50051", "attestation service address")
 	jobauthAddr := flag.String("jobauth-addr", ":50054", "job authorization service address")
 	jobhelperBin := flag.String("jobhelper-bin", "./jobhelperd", "path to jobhelper binary")
+	jobhelperPoolSize := flag.Int("jobhelper-pool-size", 5, "number of jobhelper processes to maintain")
 	flag.Parse()
 	fmt.Println("done config")
 	// Connect to Attestation service
@@ -42,7 +43,17 @@ func main() {
 	defer jobauthConn.Close()
 	jobauthClient := jobauth.NewJobAuthClient(jobauthConn)
 
-	// Note: JobHelper processes are spawned per-request using jobhelper binary
+	// Initialize JobHelper process pool
+	helperPool := make(chan *helperProc, *jobhelperPoolSize)
+	for i := 0; i < *jobhelperPoolSize; i++ {
+		proc, err := spawnHelperProc(context.Background(), *jobhelperBin, *jobauthAddr)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "failed to spawn jobhelper process: %v\n", err)
+			os.Exit(1)
+		}
+		helperPool <- proc
+	}
+	// JobHelper processes will be drawn per-request from the pool
 
 	// Start CloudBoard gRPC server
 	lis, err := net.Listen("tcp", *listenAddr)
@@ -56,6 +67,7 @@ func main() {
 		jobauth:      jobauthClient,
 		jobhelperBin: *jobhelperBin,
 		jobauthAddr:  *jobauthAddr,
+		helperPool:   helperPool,
 	}
 	controller.RegisterCloudBoardServer(grpcServer, srv)
 
@@ -83,6 +95,7 @@ type server struct {
 	jobauth      jobauth.JobAuthClient
 	jobhelperBin string
 	jobauthAddr  string
+	helperPool   chan *helperProc
 }
 
 // FetchAttestation retrieves a fresh attestation bundle.
@@ -113,12 +126,30 @@ func (s *server) InvokeWorkload(stream controller.CloudBoard_InvokeWorkloadServe
 		return fmt.Errorf("GenerateToken failed: %w", err)
 	}
 
-	// 3. Spawn JobHelper process, open stream and send the token
-	helperStream, cleanup, err := spawnJobHelper(ctx, s.jobhelperBin, s.jobauthAddr)
+	// 3. Acquire JobHelper from pool, open stream and send the token
+	proc := <-s.helperPool
+	helperStream, err := proc.Client.InvokeWorkload(ctx)
 	if err != nil {
-		return fmt.Errorf("spawn jobhelper failed: %w", err)
+		proc.cleanup()
+		// Spawn replacement helper
+		newProc, err2 := spawnHelperProc(context.Background(), s.jobhelperBin, s.jobauthAddr)
+		if err2 != nil {
+			fmt.Fprintf(os.Stderr, "failed to spawn replacement jobhelper: %v\n", err2)
+		} else {
+			s.helperPool <- newProc
+		}
+		return fmt.Errorf("failed to start jobhelper workload stream: %w", err)
 	}
-	defer cleanup()
+	// Ensure helper process is cleaned up and replaced after use
+	defer func() {
+		proc.cleanup()
+		newProc, err := spawnHelperProc(context.Background(), s.jobhelperBin, s.jobauthAddr)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "failed to spawn replacement jobhelper: %v\n", err)
+		} else {
+			s.helperPool <- newProc
+		}
+	}()
 	if err := helperStream.Send(&jobhelper.WorkloadRequest{Payload: tokenRes.Token}); err != nil {
 		return fmt.Errorf("sending token to jobhelper failed: %w", err)
 	}

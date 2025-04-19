@@ -1,0 +1,28 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build jobhelperd for cloudboardd",
+        "type": "shell", // Use shell for flexibility
+        "command": "go",
+        "args": [
+          "build",
+          "-o", // Output flag
+          "${workspaceFolder}/cloudboardd/jobhelperd", // Output path (executable in cloudboardd dir)
+          "${workspaceFolder}/jobhelper/main.go" // Source file
+        ],
+        "group": "build",
+        "presentation": {
+          "reveal": "silent", // Don't switch focus to the terminal unless there's an error
+          "panel": "shared",
+          "clear": true // Clear the terminal before running the task
+        },
+        "problemMatcher": [
+          "$go" // Use the standard Go problem matcher to show build errors
+        ]
+      }
+    ]
+  }
+  
