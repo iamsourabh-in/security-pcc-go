@@ -1,0 +1,77 @@
+// .vscode/launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch JobAuth Service",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/jobauthd/main.go",
+            "cwd": "${workspaceFolder}/jobauthd",
+            "args": [
+                // Default listen address is :50054, add flags here if needed
+                // "--listen=:50054"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Launch JobHelper Service",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/jobhelper/main.go",
+            "cwd": "${workspaceFolder}/jobhelper",
+            "args": [
+                // Default listen is :50053
+                // Default jobauth-addr is :50054 (connects to JobAuth Service)
+                "--jobauth-addr=localhost:50054" // Explicitly set for clarity
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Launch Attestation Service",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/attestationd/main.go",
+            "cwd": "${workspaceFolder}/attestationd",
+            "args": [
+                // Default listen address is :50051, add flags here if needed
+                // "--listen=:50051"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Launch CloudBoard Service",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/cloudboardd/main.go",
+            "cwd": "${workspaceFolder}/cloudboardd",
+            "args": [
+                // Default listen is :50055
+                "--attest-addr=localhost:50051",    // Connects to Attestation Service
+                "--jobauth-addr=localhost:50054",   // Connects to JobAuth Service
+                "--jobhelper-addr=localhost:50053" // Connects to JobHelper Service
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch All Go Services",
+            "configurations": [
+                "Launch JobAuth Service",
+                "Launch Attestation Service", // Start Attestation before CloudBoard depends on it
+                // "Launch JobHelper Service",   // Start JobHelper before CloudBoard depends on it
+                "Launch CloudBoard Service"   // Start CloudBoard last as it depends on others
+            ],
+            "stopAll": true // Stop all services when debugging session ends
+        }
+    ]
+}

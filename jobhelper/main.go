@@ -94,6 +94,8 @@ func (s *server) InvokeWorkload(stream jobhelper.JobHelper_InvokeWorkloadServer)
 
 // Teardown handles teardown of workloads.
 func (s *server) Teardown(ctx context.Context, req *jobhelper.TeardownRequest) (*jobhelper.EmptyResponse, error) {
-	// TODO: implement teardown logic.
-	return &jobhelper.EmptyResponse{}, nil
+   // Log teardown request payload
+   fmt.Printf("JobHelper Teardown called with payload: %x\n", req.Payload)
+   // Teardown logic can be added here (cleanup resources)
+   return &jobhelper.EmptyResponse{}, nil
 }

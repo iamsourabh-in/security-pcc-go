@@ -49,25 +49,30 @@ type server struct {
 }
 
 // Register handles a client registration request.
+// Register handles a client registration request by returning the current configuration.
 func (s *server) Register(ctx context.Context, req *configuration.RegisterRequest) (*configuration.ConfigurationUpdate, error) {
-	// TODO: integrate registry state machine logic.
-	return &configuration.ConfigurationUpdate{}, nil
+   fmt.Printf("Configuration Register called with payload: %x\n", req.Registration)
+   // Return a default configuration update (static payload for now)
+   return &configuration.ConfigurationUpdate{UpdatePayload: []byte("default-config-v1")}, nil
 }
 
 // SuccessfullyAppliedConfiguration handles success acknowledgments.
+// SuccessfullyAppliedConfiguration records a successful configuration application.
 func (s *server) SuccessfullyAppliedConfiguration(ctx context.Context, req *configuration.ApplySuccessRequest) (*configuration.EmptyResponse, error) {
-	// TODO: record successful apply.
-	return &configuration.EmptyResponse{}, nil
+   fmt.Printf("Configuration applied successfully: %x\n", req.SuccessPayload)
+   return &configuration.EmptyResponse{}, nil
 }
 
 // FailedToApplyConfiguration handles failure acknowledgments.
+// FailedToApplyConfiguration records a failed configuration application.
 func (s *server) FailedToApplyConfiguration(ctx context.Context, req *configuration.ApplyFailureRequest) (*configuration.EmptyResponse, error) {
-	// TODO: record failed apply.
-	return &configuration.EmptyResponse{}, nil
+   fmt.Printf("Configuration apply failed: %x\n", req.FailurePayload)
+   return &configuration.EmptyResponse{}, nil
 }
 
 // CurrentConfigurationVersionInfo returns the version info.
+// CurrentConfigurationVersionInfo returns info about the current configuration version.
 func (s *server) CurrentConfigurationVersionInfo(ctx context.Context, req *configuration.EmptyRequest) (*configuration.VersionInfoResponse, error) {
-	// TODO: return current version info.
-	return &configuration.VersionInfoResponse{}, nil
+   // Return static version info for now
+   return &configuration.VersionInfoResponse{VersionInfo: []byte("version-1")}, nil
 }
