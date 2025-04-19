@@ -68,6 +68,7 @@ func main() {
 		jobhelperBin: *jobhelperBin,
 		jobauthAddr:  *jobauthAddr,
 		helperPool:   jobHelperPool,
+		loadSubject:  NewLoadSubject(*jobhelperPoolSize),
 	}
 	controller.RegisterCloudBoardServer(grpcServer, srv)
 
@@ -96,6 +97,7 @@ type server struct {
 	jobhelperBin string
 	jobauthAddr  string
 	helperPool   chan *helperProc
+	loadSubject  *LoadSubject
 }
 
 // FetchAttestation retrieves a fresh attestation bundle.
@@ -154,6 +156,10 @@ func (s *server) InvokeWorkload(stream controller.CloudBoard_InvokeWorkloadServe
 		return fmt.Errorf("sending token to jobhelper failed: %w", err)
 	}
 
+	// update load count
+	s.loadSubject.Increment()
+	defer s.loadSubject.Decrement()
+
 	// 4. Proxy streams between client and JobHelper
 	errCh := make(chan error, 2)
 
@@ -191,4 +197,23 @@ func (s *server) InvokeWorkload(stream controller.CloudBoard_InvokeWorkloadServe
 	err = <-errCh
 	helperStream.CloseSend()
 	return err
+}
+
+// WatchLoadLevel streams the current load level of the server to the client. using observers
+func (s *server) WatchLoadLevel(req *controller.LoadRequest, stream controller.CloudBoard_WatchLoadLevelServer) error {
+	ch, unsubscribe := s.loadSubject.Subscribe()
+	defer unsubscribe()
+	for {
+		select {
+		case <-stream.Context().Done():
+			return nil
+		case resp, ok := <-ch:
+			if !ok {
+				return nil
+			}
+			if err := stream.Send(resp); err != nil {
+				return err
+			}
+		}
+	}
 }
