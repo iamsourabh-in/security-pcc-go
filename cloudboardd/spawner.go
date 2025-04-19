@@ -21,7 +21,7 @@ import (
 func spawnJobHelper(ctx context.Context, binPath, jobauthAddr string) (helperpb.JobHelper_InvokeWorkloadClient, func() error, error) {
 	// Prepare command: listen on random port
 	cmd := exec.CommandContext(ctx, binPath,
-		"--listen", ":0",
+		"--listen", ":50053",
 		"--jobauth-addr", jobauthAddr,
 	)
 	stdout, err := cmd.StdoutPipe()
@@ -64,13 +64,11 @@ func spawnJobHelper(ctx context.Context, binPath, jobauthAddr string) (helperpb.
 		return nil, nil, fmt.Errorf("timeout waiting for jobhelper listening message")
 	}
 
-	// Dial the JobHelper gRPC server
-	dialCtx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	// Connect to the JobHelper gRPC server
+	_, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
-	conn, err := grpc.DialContext(dialCtx, addr,
-		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithBlock(),
-	)
+	conn, err := grpc.NewClient(addr,
+		grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		cmd.Process.Kill()
 		return nil, nil, fmt.Errorf("dial jobhelper at %s: %w", addr, err)

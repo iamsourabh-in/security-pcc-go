@@ -18,12 +18,12 @@ import (
 )
 
 func main() {
-		listenAddr := flag.String("listen", ":50055", "cloudboard service listen address")
-		attestAddr := flag.String("attest-addr", ":50051", "attestation service address")
-		jobauthAddr := flag.String("jobauth-addr", ":50054", "job authorization service address")
-		jobhelperBin := flag.String("jobhelper-bin", "./jobhelperd", "path to jobhelper binary")
-		flag.Parse()
-
+	listenAddr := flag.String("listen", ":50055", "cloudboard service listen address")
+	attestAddr := flag.String("attest-addr", ":50051", "attestation service address")
+	jobauthAddr := flag.String("jobauth-addr", ":50054", "job authorization service address")
+	jobhelperBin := flag.String("jobhelper-bin", "./jobhelperd", "path to jobhelper binary")
+	flag.Parse()
+	fmt.Println("done config")
 	// Connect to Attestation service
 	attestConn, err := grpc.NewClient(*attestAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
@@ -42,7 +42,7 @@ func main() {
 	defer jobauthConn.Close()
 	jobauthClient := jobauth.NewJobAuthClient(jobauthConn)
 
-   // Note: JobHelper processes are spawned per-request using jobhelper binary
+	// Note: JobHelper processes are spawned per-request using jobhelper binary
 
 	// Start CloudBoard gRPC server
 	lis, err := net.Listen("tcp", *listenAddr)
@@ -51,12 +51,12 @@ func main() {
 		os.Exit(1)
 	}
 	grpcServer := grpc.NewServer()
-   srv := &server{
-       attest:      attestClient,
-       jobauth:     jobauthClient,
-       jobhelperBin: *jobhelperBin,
-       jobauthAddr:  *jobauthAddr,
-   }
+	srv := &server{
+		attest:       attestClient,
+		jobauth:      jobauthClient,
+		jobhelperBin: *jobhelperBin,
+		jobauthAddr:  *jobauthAddr,
+	}
 	controller.RegisterCloudBoardServer(grpcServer, srv)
 
 	go func() {
@@ -79,10 +79,10 @@ func main() {
 // server implements the CloudBoard gRPC service.
 type server struct {
 	controller.UnimplementedCloudBoardServer
-   attest       attestation.AttestationClient
-   jobauth      jobauth.JobAuthClient
-   jobhelperBin string
-   jobauthAddr  string
+	attest       attestation.AttestationClient
+	jobauth      jobauth.JobAuthClient
+	jobhelperBin string
+	jobauthAddr  string
 }
 
 // FetchAttestation retrieves a fresh attestation bundle.
@@ -98,66 +98,66 @@ func (s *server) FetchAttestation(ctx context.Context, req *controller.FetchAtte
 // and proxying subsequent request/response streams.
 // InvokeWorkload initiates a workload: first receives job metadata, obtains a token, then proxies streams.
 func (s *server) InvokeWorkload(stream controller.CloudBoard_InvokeWorkloadServer) error {
-   ctx := stream.Context()
+	ctx := stream.Context()
 
-   // 1. Receive initial job metadata from client
-   initReq, err := stream.Recv()
-   if err != nil {
-       return fmt.Errorf("failed to receive initial metadata: %w", err)
-   }
-   jobMetadata := initReq.Payload
+	// 1. Receive initial job metadata from client
+	initReq, err := stream.Recv()
+	if err != nil {
+		return fmt.Errorf("failed to receive initial metadata: %w", err)
+	}
+	jobMetadata := initReq.Payload
 
-   // 2. Generate a per-job token using the metadata
-   tokenRes, err := s.jobauth.GenerateToken(ctx, &jobauth.GenerateTokenRequest{JobMetadata: jobMetadata})
-   if err != nil {
-       return fmt.Errorf("GenerateToken failed: %w", err)
-   }
+	// 2. Generate a per-job token using the metadata
+	tokenRes, err := s.jobauth.GenerateToken(ctx, &jobauth.GenerateTokenRequest{JobMetadata: jobMetadata})
+	if err != nil {
+		return fmt.Errorf("GenerateToken failed: %w", err)
+	}
 
-   // 3. Spawn JobHelper process, open stream and send the token
-   helperStream, cleanup, err := spawnJobHelper(ctx, s.jobhelperBin, s.jobauthAddr)
-   if err != nil {
-       return fmt.Errorf("spawn jobhelper failed: %w", err)
-   }
-   defer cleanup()
-   if err := helperStream.Send(&jobhelper.WorkloadRequest{Payload: tokenRes.Token}); err != nil {
-       return fmt.Errorf("sending token to jobhelper failed: %w", err)
-   }
+	// 3. Spawn JobHelper process, open stream and send the token
+	helperStream, cleanup, err := spawnJobHelper(ctx, s.jobhelperBin, s.jobauthAddr)
+	if err != nil {
+		return fmt.Errorf("spawn jobhelper failed: %w", err)
+	}
+	defer cleanup()
+	if err := helperStream.Send(&jobhelper.WorkloadRequest{Payload: tokenRes.Token}); err != nil {
+		return fmt.Errorf("sending token to jobhelper failed: %w", err)
+	}
 
-   // 4. Proxy streams between client and JobHelper
-   errCh := make(chan error, 2)
+	// 4. Proxy streams between client and JobHelper
+	errCh := make(chan error, 2)
 
-   // a) Client -> JobHelper
-   go func() {
-       for {
-           req, err := stream.Recv()
-           if err != nil {
-               errCh <- err
-               return
-           }
-           if err := helperStream.Send(&jobhelper.WorkloadRequest{Payload: req.Payload}); err != nil {
-               errCh <- err
-               return
-           }
-       }
-   }()
+	// a) Client -> JobHelper
+	go func() {
+		for {
+			req, err := stream.Recv()
+			if err != nil {
+				errCh <- err
+				return
+			}
+			if err := helperStream.Send(&jobhelper.WorkloadRequest{Payload: req.Payload}); err != nil {
+				errCh <- err
+				return
+			}
+		}
+	}()
 
-   // b) JobHelper -> Client
-   go func() {
-       for {
-           resp, err := helperStream.Recv()
-           if err != nil {
-               errCh <- err
-               return
-           }
-           if err := stream.Send(&controller.InvokeWorkloadResponse{Payload: resp.Payload}); err != nil {
-               errCh <- err
-               return
-           }
-       }
-   }()
+	// b) JobHelper -> Client
+	go func() {
+		for {
+			resp, err := helperStream.Recv()
+			if err != nil {
+				errCh <- err
+				return
+			}
+			if err := stream.Send(&controller.InvokeWorkloadResponse{Payload: resp.Payload}); err != nil {
+				errCh <- err
+				return
+			}
+		}
+	}()
 
-   // Wait for error or completion
-   err = <-errCh
-   helperStream.CloseSend()
-   return err
+	// Wait for error or completion
+	err = <-errCh
+	helperStream.CloseSend()
+	return err
 }

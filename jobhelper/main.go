@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"flag"
 	"fmt"
 	"net"
@@ -84,8 +85,9 @@ func (s *server) InvokeWorkload(stream jobhelper.JobHelper_InvokeWorkloadServer)
 		if err != nil {
 			return err
 		}
+		fmt.Println("Received workload request:", string(req.Payload))
 		// For demonstration, simply echo the payload
-		resp := &jobhelper.WorkloadResponse{Payload: req.Payload}
+		resp := &jobhelper.WorkloadResponse{Payload: []byte(base64.StdEncoding.EncodeToString(req.Payload) + " !!")}
 		if err := stream.Send(resp); err != nil {
 			return err
 		}
@@ -94,8 +96,8 @@ func (s *server) InvokeWorkload(stream jobhelper.JobHelper_InvokeWorkloadServer)
 
 // Teardown handles teardown of workloads.
 func (s *server) Teardown(ctx context.Context, req *jobhelper.TeardownRequest) (*jobhelper.EmptyResponse, error) {
-   // Log teardown request payload
-   fmt.Printf("JobHelper Teardown called with payload: %x\n", req.Payload)
-   // Teardown logic can be added here (cleanup resources)
-   return &jobhelper.EmptyResponse{}, nil
+	// Log teardown request payload
+	fmt.Printf("JobHelper Teardown called with payload: %x\n", req.Payload)
+	// Teardown logic can be added here (cleanup resources)
+	return &jobhelper.EmptyResponse{}, nil
 }
